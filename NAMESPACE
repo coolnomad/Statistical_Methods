@@ -1,0 +1,7 @@
+export(fit_mean_variance)
+export(fit_meanvar_1d)
+S3method(predict, meanvarfit)
+S3method(plot, meanvarfit)
+import(mgcv)
+import(ranger)
+import(stats)

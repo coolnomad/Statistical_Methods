@@ -1,0 +1,6 @@
+^\.git$
+^\.\.Rcheck$
+^tests/\.Rhistory$
+^\.Rproj\.user$
+^\.Rhistory$
+^\.RData$

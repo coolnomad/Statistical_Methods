@@ -1,0 +1,58 @@
+---
+title: "meanvar: Introduction"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{meanvar: Introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+## 1-D simulation
+
+```{r}
+set.seed(123)
+n <- 2000
+x <- runif(n, 0, 10)
+sigma2 <- 0.05 + (0.5 + 0.5 * sin(2 * pi * x / 10))
+y <- x + rnorm(n, sd = sqrt(sigma2))
+
+fit_1d <- fit_meanvar_1d(y, x)
+plot(fit_1d, which = "variance_curve")
+plot(fit_1d, which = "std_resid")
+```
+
+## High-D simulation
+
+```{r}
+set.seed(456)
+n <- 3000
+p <- 20
+X <- matrix(rnorm(n * p), nrow = n, ncol = p)
+
+mu <- X[, 1] + 0.5 * X[, 2]^2 - 0.75 * (X[, 3] > 0)
+sigma2 <- exp(0.2 * X[, 4] - 0.3 * X[, 5] + 0.5 * X[, 4] * X[, 5]) + 0.1
+y <- mu + rnorm(n, sd = sqrt(sigma2))
+
+fit_hd <- fit_mean_variance(
+  y, X,
+  mean_backend = "ranger",
+  var_backend = "rf_smooth",
+  projection = "var_pred",
+  seed = 456
+)
+
+plot(fit_hd, which = "variance_curve")
+plot(fit_hd, which = "std_resid")
+
+sigma2_hat <- fit_hd$sigma2_hat
+ise <- mean((sigma2_hat - sigma2)^2)
+r2_fit <- (y - fit_hd$mu_hat)^2
+ise_const <- mean((mean(r2_fit) - sigma2)^2)
+
+ise
+ise_const
+```
