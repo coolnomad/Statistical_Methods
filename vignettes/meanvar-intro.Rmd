@@ -11,6 +11,10 @@ vignette: >
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
+```{r}
+library(meanvar)
+```
+
 ## 1-D simulation
 
 ```{r}
