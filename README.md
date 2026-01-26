@@ -3,6 +3,19 @@
 Mean-variance modeling tools for estimating conditional mean and variance with GAM
 and random forest backends.
 
+## Installation (GitHub)
+
+```r
+install.packages("remotes")
+remotes::install_github("USERNAME/REPONAME")
+```
+
+Versioned install:
+
+```r
+remotes::install_github("USERNAME/REPONAME@v0.1.0")
+```
+
 ## Usage
 
 ```r

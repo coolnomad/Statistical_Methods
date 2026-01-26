@@ -1,4 +1,4 @@
 library(testthat)
 library(meanvar)
 
-test_check("meanvar")
+testthat::test_check("meanvar")

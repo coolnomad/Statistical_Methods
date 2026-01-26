@@ -3,6 +3,7 @@
 #' @param x A meanvarfit object.
 #' @param which Plot type.
 #' @param ... Passed to base plotting functions.
+#' @return Invisible NULL.
 #'
 #' @export
 plot.meanvarfit <- function(x, which = c("variance_curve", "std_resid", "r2_vs_index"), ...) {

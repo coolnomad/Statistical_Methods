@@ -13,6 +13,9 @@
 
 \item{...}{Passed to base plotting functions.}
 }
+\value{
+Invisible NULL.
+}
 \description{
 Plot method for meanvarfit
 }

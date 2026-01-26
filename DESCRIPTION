@@ -1,7 +1,7 @@
 Package: meanvar
 Type: Package
 Title: Mean-Variance Modeling
-Version: 0.1.1
+Version: 0.1.2
 Author: OpenAI Codex
 Maintainer: OpenAI Codex <codex@example.com>
 Authors@R: person("OpenAI", "Codex", email = "codex@example.com", role = c("aut", "cre"))
@@ -10,7 +10,9 @@ Description: Fit conditional mean and variance models with flexible backends,
     utilities for diagnostics.
 License: MIT + file LICENSE
 Encoding: UTF-8
-Imports: mgcv, ranger, stats
+LazyData: true
+Imports: grDevices, graphics, mgcv, ranger, stats
 Suggests: testthat, knitr, rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 7.3.3
+Config/testthat/edition: 3
